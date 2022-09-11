@@ -5,7 +5,8 @@ window.addEventListener("load", ()=>{
     displayTable();
     document.getElementById('answer-button').addEventListener('click', getAnswer);
 });
-//window.addEventListener("load", displayTable);
+
+
 function displayTable(){
     var  removetable = document.getElementsByTagName('table')[0];
     removetable.remove();
@@ -20,14 +21,16 @@ function displayTable(){
             {
                 var number = document.createTextNode(arrayNumber[i][j])
                 cell.appendChild(number);
-                cell.style.fontSize = fontSize;  
+                //cell.style.fontSize = fontSize;  
             }
-            setStyleOfCell(cell);
+            cell.className="cell";
+            //setStyleOfCell(cell);
             cell.addEventListener('click',function(){MoveNumber(i,j)})
             line.appendChild(cell);
         }
         table.appendChild(line);
     }
+    table.className = "table";
     document.getElementById('insert-table').appendChild(table);
 }
 
