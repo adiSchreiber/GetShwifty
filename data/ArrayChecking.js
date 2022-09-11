@@ -49,35 +49,42 @@ function getLineIndexOfNull(array)
 function getLegalBoard()
 {
     const inputNumber = getInputLinesNumber();
-    let array = generateArray(inputNumber);
-    let numOfOpposite = getCountOfOppositeInBoard(array);
-    let isLegal = false;
-    while(!isLegal)
+    if(!numberValidate(inputNumber))
     {
-        if(array[0].length%2>0)
-        {
-            if(numOfOpposite%2==0)
-            {
-                isLegal=true;
-            }
-            else
-            {
-                array = generateArray(inputNumber);
-                numOfOpposite = getCountOfOppositeInBoard(array);
-            }
-        }
-        else
-        {
-            if((numOfOpposite+getLineIndexOfNull(array))%2==0)
-            {
-                isLegal=true;
-            }
-            else
-            {
-                array = generateArray(inputNumber);
-                numOfOpposite = getCountOfOppositeInBoard(array);
-            }
-        }
+        InputLinesAlert();
     }
-    return array;
+    else
+    {
+        let array = generateArray(inputNumber);
+        let numOfOpposite = getCountOfOppositeInBoard(array);
+        let isLegal = false;
+        while(!isLegal)
+        {
+            if(array[0].length%2>0)
+            {
+                if(numOfOpposite%2==0)
+                {
+                    isLegal=true;
+                }
+                else
+                {
+                    array = generateArray(inputNumber);
+                    numOfOpposite = getCountOfOppositeInBoard(array);
+                }
+            }
+            else
+            {
+                if((numOfOpposite+getLineIndexOfNull(array))%2==0)
+                {
+                    isLegal=true;
+                }
+                else
+                {
+                    array = generateArray(inputNumber);
+                    numOfOpposite = getCountOfOppositeInBoard(array);
+                }
+            }
+        }
+        return array;
+    }
 }

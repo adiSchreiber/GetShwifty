@@ -1,1 +1,0 @@
-const fontSize = "xxx-large"

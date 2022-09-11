@@ -1,6 +1,6 @@
-function generateArray()
+function generateArray(inputnumber)
 {
-    const numberOfLines = getInputLinesNumber();
+    const numberOfLines = inputnumber;
     let board = [];
     let line = [];
     let number = 1;

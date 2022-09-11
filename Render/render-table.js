@@ -1,6 +1,9 @@
 function displayTable(){
     var  removetable = document.getElementsByTagName('table')[0];
-    removetable.remove();
+    if(removetable!=undefined)
+    {
+        removetable.remove();
+    }
     var table = document.createElement('table');
     for(let i=0;i<arrayNumber.length;i++)
     {
@@ -12,14 +15,16 @@ function displayTable(){
             {
                 var number = document.createTextNode(arrayNumber[i][j])
                 cell.appendChild(number);
-                cell.style.fontSize = fontSize;  
             }
-            setStyleOfCell(cell);
-            cell.addEventListener('click',function(){MoveNumber(i,j)})
+            cell.className="cell";
+            cell.addEventListener('click',function(){
+                MoveNumber(i,j);
+            });
             line.appendChild(cell);
         }
         table.appendChild(line);
-        table.style.backgroundColor="yellow";
+        table.className = getTableClassName();
     }
     document.getElementById('insert-table').appendChild(table);
 }
+

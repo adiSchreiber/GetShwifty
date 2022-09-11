@@ -56,3 +56,30 @@ function getAnswer()
     arrayNumber = answerArray;
     displayTable();
 }
+
+function isEqualArray(firstArray, SecondArray)
+{
+    if(firstArray.length!=SecondArray.length)
+    {
+        return false;
+    }
+    for(let i=0;i<firstArray.length;i++)
+    {
+        if(firstArray[i]!=SecondArray[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isEnd()
+{
+    const endArray = getArrayAnswer(); 
+        const currentArray = ParseArrayForChecking(arrayNumber).filter(element=>{return element!=null;});
+    if(isEqualArray(endArray, currentArray))
+    {
+        return true;
+    }
+    return false;
+}

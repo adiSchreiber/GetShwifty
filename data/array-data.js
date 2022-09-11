@@ -4,8 +4,7 @@ var arrayNumber = [
     [5,7,8]
 ]
 
-var answerArray = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,null]
-]
+function getArrayAnswer()
+{
+    return ParseArrayForChecking(arrayNumber).filter(element=>{return element!=null;}).sort();
+}
