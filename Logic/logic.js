@@ -47,14 +47,12 @@ function MoveNumber(i,j){
 
             }
         } 
-        displayTable();  
     }
 }
 
 function getAnswer()
 {
-    arrayNumber = answerArray;
-    displayTable();
+    arrayNumber = getArrayAnswer();
 }
 
 function isEqualArray(firstArray, SecondArray)
@@ -75,11 +73,21 @@ function isEqualArray(firstArray, SecondArray)
 
 function isEnd()
 {
-    const endArray = getArrayAnswer(); 
-        const currentArray = ParseArrayForChecking(arrayNumber).filter(element=>{return element!=null;});
-    if(isEqualArray(endArray, currentArray))
+   let lastCell =  arrayNumber[arrayNumber.length-1][arrayNumber[arrayNumber.length-1].length-1];
+
+    if(lastCell==null)
     {
-        return true;
+        var endArray = getArrayAnswer();
+        endArray = ParseArrayForChecking(arrayNumber).filter(element=>{return element!=null;}).sort();
+        const currentArray = ParseArrayForChecking(arrayNumber).filter(element=>{return element!=null;});
+        if(isEqualArray(endArray, currentArray))
+        {
+            return true;
+        }
+        return false;
     }
-    return false;
+    else
+    {
+        return false;
+    }
 }

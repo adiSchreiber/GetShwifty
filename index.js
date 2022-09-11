@@ -3,7 +3,10 @@
 window.addEventListener("load", ()=>{
    // shuffleMultipleArray(arrayNumber);
     //displayTable();
-    document.getElementById('answer-button').addEventListener('click', getAnswer);
+    document.getElementById('answer-button').addEventListener('click',()=>{
+        getAnswer();
+        displayTable();
+    });
     document.getElementById('generateButton').addEventListener('click', generateNewBoard);
 });
 

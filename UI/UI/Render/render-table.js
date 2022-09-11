@@ -17,14 +17,16 @@ function displayTable(){
                 cell.appendChild(number);
             }
             cell.className="cell";
-            cell.addEventListener('click',function(){
+            cell.addEventListener('click',()=>{
                 MoveNumber(i,j);
+                displayTable();
             });
             line.appendChild(cell);
         }
         table.appendChild(line);
         table.className = getTableClassName();
     }
+   
     document.getElementById('insert-table').appendChild(table);
 }
 
